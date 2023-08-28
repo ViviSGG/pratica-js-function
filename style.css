@@ -1,0 +1,25 @@
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.buttons img {
+    width: 36px;
+    padding-right: 10px;
+}
+
+.white {
+    display: none;
+}
+
+a:hover {
+    .white {
+        display: inline;
+    }
+
+    .blue {
+        display: none;
+    }
+}
+
