@@ -1,33 +1,34 @@
 /*  Cálculo do valor da conta em um bar */
 
 /* Descrição: Cinco amigos combinaram de ir a um bar tomar chopp.
-O bar d´a desconto (happy hour) at´e `as 19h, sendo que somente 2 amigos
+O bar dá desconto (happy hour) até às 19h, sendo que somente 2 amigos
 do grupo conseguiram chegar ao bar antes das 19h e tomaram 4 chopps
 cada.
-O desconto ´e n˜ao cobrar os 10% O restante do grupo chegou ap´os o
-happy hour e n˜ao conseguiram mais o desconto.
+O desconto é não cobrar os 10% O restante do grupo chegou após o
+happy hour e não conseguiram mais o desconto.
 Elaboe um algoritmo em JavaScript que calcule o valor dessa conta.
-Exiba um formul´ario em HTML no qual um gar¸con insira os produtos e
-emida um relat´orio (em HTML) com a conta final a ser paga.
+Exiba um formulário em HTML no qual um gar¸con insira os produtos e
+emida um relatário (em HTML) com a conta final a ser paga.
  */
 
-function calculoDesconto(x) { 
-    let desconto = x * ( 10 / 100 );
-    return x - desconto;
+function calculoTaxa(x) { 
+    let taxa = x * ( 10 / 100 ); /* ( 10 / 100 ) == 0,10 == 10%*/
+    return x + taxa;
 }
     
-let conta = 2; 
-let preco = conta * 5;
-let resultado = calculoDesconto(preco);
+let preco = 5;
+let consumo = 8; 
+let comDesconto = consumo * preco;
 
-const resposta = prompt(`Á ${conta} Chopps em conta, deseja pedir mais? (s/n)`);
+const resposta = prompt(`Á ${consumo} Chopps em conta, deseja pedir mais? (s/n)`);
 
 if (resposta == "s") {
-    let extra = parseFloat(prompt("Quantos copos deseja? (Chopp 1 copo - R$5,00):")) 
-        let total = resultado + (extra * 5);
+    let consumoTaxa = parseFloat(prompt(`Quantos copos deseja? (Chopp 1 copo - R$${preco},00):`)) 
+    let SemDesconto = consumoTaxa * preco;
+    let total = comDesconto + calculoTaxa(SemDesconto);;
         document.write(`Total da conta é R$${total}.`);
 } else {
-    document.write(`Total da conta é R$${resultado}.`);    
+    document.write(`Total da conta é R$${comDesconto}.`);
 }
 
 
